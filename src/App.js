@@ -1,9 +1,13 @@
 import { Text, View } from 'react-native';
+import data from '../data.json';
+import { colors } from './theme';
+
+import MovieList from './components/MovieList';
 
 export default function App() {
   return (
-    <View>
-      <Text>Каталог Филминп</Text>
+    <View style={{ flex: 1, backgroundColor: colors.background }}>
+      <MovieList movies={data.movies} />
     </View>
   );
 }
