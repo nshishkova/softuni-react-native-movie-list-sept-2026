@@ -1,4 +1,5 @@
 import { Text, View, StyleSheet, Image } from 'react-native';
+import GenreTags from './GenreTag';
 import { colors } from '../theme';
 import { formatDuration } from '../utils/dateTimeUtils';
 
@@ -20,6 +21,8 @@ export default function MovieCard({
     </View>
       <Text style={styles.meta}>{year} • {formatDuration(durationMinutes)}</Text>
       <Text style={styles.director}>{director}</Text>
+    
+    <GenreTags genre={genre} />
     </View>
     </View>
   );
