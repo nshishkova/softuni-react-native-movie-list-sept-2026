@@ -12,11 +12,15 @@ export default function App() {
   const selectedMovieHandler = (movie) => {
     setSelectedMovie(movie);
   };
-  
+
+  const backHandler = () => {
+    setSelectedMovie(null);
+  };
+
   return (
     <View style={{ flex: 1, backgroundColor: colors.background }}>
       {selectedMovie ? (
-        <MovieDetails movie={selectedMovie} onSelectMovie={setSelectedMovie} />
+        <MovieDetails movie={selectedMovie} onBack={backHandler} />
       ) : (
         <MovieList movies={data.movies} onSelect={selectedMovieHandler} />
       )}
