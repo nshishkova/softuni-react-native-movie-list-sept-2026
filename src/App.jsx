@@ -1,7 +1,7 @@
 import { Text, View, StatusBar } from "react-native";
 import { useState } from "react";
-import data from "../data.json";
 import { colors } from "./theme";
+import { MovieProvider } from "./contexts/MovieContext";
 
 import MovieList from "./components/MovieList";
 import MovieDetails from "./components/MovieDetails";
@@ -18,14 +18,16 @@ export default function App() {
   };
 
   return (
+    <MovieProvider>
     <View style={{ flex: 1, backgroundColor: colors.background }}>
     <StatusBar barStyle="light-content" />
       {selectedMovie ? (
         <MovieDetails movie={selectedMovie} onBack={backHandler} />
       ) : (
-        <MovieList movies={data.movies} onSelect={selectedMovieHandler} />
+        <MovieList onSelect={selectedMovieHandler} />
       )}
 
     </View>
+    </MovieProvider>
   );
 }
